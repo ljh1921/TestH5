@@ -2,12 +2,36 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>菜鸟(runoob.com)</title>
+<title>探火-库存查询</title>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+$(document).ready(function(){
+    $("#submit").click(function(){
+$("#quantity").html('data');
+        var urls = $('#urls').val();
+var reg = new RegExp("(https?):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&:/~\\+#]*[\\w\\-\\@?^=%&/~\\+#])?", "ig");
+     
+        var url = urls.match(reg).jion("");
+    $.ajax({
+        type: "get",
+        url: url,
+        dataType: 'jsonp', 
+        success: function(data) { 
+$("#quantity").html(data);
+        }
+        });
+    });
+});
+</script>
 </head>
 <body>
 ​
-<h1>修改测试</h1>
-<p>我的第一个段落。</p>
-​
+<h1>探火-库存查询</h1>
+<p>输入淘宝链接：</p>
+<input type="text"  id="urls">
+<br>
+<input type="submit" value="确认">
+<br>
+<span id ="quantity"></span>
 </body>
 </html>
