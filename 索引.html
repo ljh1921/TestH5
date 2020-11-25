@@ -11,14 +11,14 @@ $("#quantity").html('data');
         var urls = $('#urls').val();
 var reg = new RegExp("(https?):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&:/~\\+#]*[\\w\\-\\@?^=%&/~\\+#])?", "ig");
      
-        var url = urls.match(reg).jion("");
-    $.ajax({
+        var url = urls.match(reg).join("");
+   $.ajax({
         type: "get",
         url: url,
         dataType: 'jsonp', 
-        success: function(data) { 
-$("#quantity").html(data);
-        }
+complete : function(){
+        console.log(this.url)
+    }
         });
     });
 });
